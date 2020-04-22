@@ -1,4 +1,4 @@
-package main
+package stack
 
 import (
 	"errors"
@@ -15,7 +15,7 @@ func NewStack() *MyStack {
 	return &MyStack{a: make([]int, 0)}
 }
 
-func (s *MyStack) isEmpty() bool {
+func (s *MyStack) IsEmpty() bool {
 	if len(s.a) > 0 {
 		return false
 	}
@@ -24,7 +24,7 @@ func (s *MyStack) isEmpty() bool {
 }
 
 func (s *MyStack) Top() (int, error) {
-	if stk.isEmpty() {
+	if stk.IsEmpty() {
 		return 0, errors.New("The stack is empty")
 	}
 	return s.a[len(s.a)-1], nil
@@ -35,7 +35,7 @@ func (s *MyStack) Push(val int) {
 }
 
 func (s *MyStack) Pop() error {
-	if s.isEmpty() {
+	if s.IsEmpty() {
 		return errors.New("The stack is empty")
 	}
 
